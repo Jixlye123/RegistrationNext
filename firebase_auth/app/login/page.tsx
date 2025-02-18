@@ -59,7 +59,7 @@ const LoginPage = () => {
 
     return (
         <div className="bg-gradient-to-b from-orange-800 via-black to-black min-h-screen flex flex-col items-center justify-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Road Violations Fines System</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">Digi <span className="text-orange-500">Fines</span> SriLanka</h2>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl p-8 w-96">
                 <form onSubmit={handleLogin} className="space-y-6">

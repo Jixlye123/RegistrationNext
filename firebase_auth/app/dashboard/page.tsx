@@ -40,8 +40,12 @@ const DashboardPage = () => {
     };
 
     const handleChangePassword = () => {
-        router.push("/passwordchange");
+        router.push("/changepassword");
     };
+
+    const handleHomePageButton = () => {
+        router.push("/");
+    }
 
     if (loading) {
         return <p>Loading...</p>;
@@ -80,6 +84,13 @@ const DashboardPage = () => {
             >
                 Change Password
             </button>
+            <button
+                onClick={handleHomePageButton}
+                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300"
+            >
+                Go to Homepage
+            </button>
+
             </div>
         </main>
         </div>
