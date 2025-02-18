@@ -73,24 +73,24 @@ const Register = () => {
         <h2 className="text-4xl font-bold text-white mb-6">Register</h2>
 
         <div className="bg-white/10 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl p-8 w-96">
-            <form className="space-y-6">
+            <form onSubmit={handleRegister} className="space-y-6">
             {/* First & Last Name (Side by Side) */}
             <div className="flex space-x-4">
                 <div className="w-1/2">
-                <label className="text-sm font-medium text-gray-300">First Name</label>
-                <input type="text" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                <label htmlFor="firstName" className="text-sm font-medium text-gray-300">First Name</label>
+                <input type="text" value={firstName} className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" required onChange={(e) => setFirstName(e.target.value)}/>
                 </div>
 
                 <div className="w-1/2">
-                <label className="text-sm font-medium text-gray-300">Last Name</label>
-                <input type="text" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                <label htmlFor="lastName" className="text-sm font-medium text-gray-300">Last Name</label>
+                <input type="text"value={lastName} className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" required  onChange={(e) => setLastName(e.target.value)}/>
                 </div>
             </div>
 
             {/* Gender */}
             <div>
-                <label className="text-sm font-medium text-gray-300">Gender</label>
-                <select className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
+                <label htmlFor="gender" className="text-sm font-medium text-gray-300">Gender</label>
+                <select id="gender" value={gender} onChange={(e) => setGender(e.target.value)} required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -100,21 +100,24 @@ const Register = () => {
 
             {/* Email */}
             <div>
-                <label className="text-sm font-medium text-gray-300">Email</label>
-                <input type="email" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
             </div>
 
             {/* Password */}
             <div>
-                <label className="text-sm font-medium text-gray-300">Password</label>
-                <input type="password" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                <label htmlFor="password" className="text-sm font-medium text-gray-300">Password</label>
+                <input type="password"value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
             </div>
 
             {/* Confirm Password */}
             <div>
-                <label className="text-sm font-medium text-gray-300">Confirm Password</label>
-                <input type="password" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-300">Confirm Password</label>
+                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
             </div>
+
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            {message && <p className="text-green-500 text-sm">{message}</p>}
 
             {/* Sign Up Button */}
             <button type="submit" className="w-full py-3 mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-md transition duration-300">

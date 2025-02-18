@@ -62,18 +62,18 @@ const LoginPage = () => {
             <h2 className="text-4xl font-bold text-white mb-6">Road Violations Fines System</h2>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl p-8 w-96">
-                <form className="space-y-6">
+                <form onSubmit={handleLogin} className="space-y-6">
                 <div>
-                    <label className="text-sm font-medium text-gray-300">Email</label>
-                    <input type="email" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                    <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
+                    <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
                 </div>
 
                 <div>
-                    <label className="text-sm font-medium text-gray-300">Password</label>
-                    <input type="password" className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                    <label htmlFor="password" className="text-sm font-medium text-gray-300">Password</label>
+                    <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="text" required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
                 </div>
-
-                <button type="submit" className="w-full py-3 mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-md transition duration-300">
+                {error && <p className="text-red-500 text-sm">{error}</p>}
+                <button  type="submit" className="w-full py-3 mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-md transition duration-300">
                     Log In
                 </button>
                 </form>
