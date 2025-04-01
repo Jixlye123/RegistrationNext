@@ -6,6 +6,7 @@ import { auth,firestore } from '@/firebase/firebase';
 import { doc, getDoc} from "firebase/firestore";
 import type { User } from "firebase/auth";
 import Link from "next/link";
+import '../app/globals.css';
 
 const HomePage = () => {
   const[loading, setLoading] = useState(true);
@@ -100,7 +101,7 @@ if (loading) {
             </details>
             <details className="p-4 bg-gray-800 text-white rounded-lg">
               <summary className="cursor-pointer font-bold">Can I dispute a fine online?</summary>
-              <p className="mt-2">Yes! Click on 'Dispute Fines' and follow the steps to submit an appeal.</p>
+              <p className="mt-2">Yes! Click on &apos;Dispute Fines&apos; and follow the steps to submit an appeal.</p>
             </details>
             <details className="p-4 bg-gray-800 text-white rounded-lg">
               <summary className="cursor-pointer font-bold">What payment methods are supported?</summary>
@@ -113,15 +114,15 @@ if (loading) {
           <h2 className="text-3xl text-center font-bold mb-6 text-orange-500">What Our Users Say</h2>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-orange-500">
-              <p className="italic">"Super easy to pay my fine online. No more waiting in lines!"</p>
+              <p className="italic">Super easy to pay my fine online. No more waiting in lines!</p>
               <h4 className="mt-4 font-bold text-orange-400">- Jinuka W.</h4>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-orange-500">
-              <p className="italic">"I disputed my fine in minutes. Great service!"</p>
+              <p className="italic">I disputed my fine in minutes. Great service!</p>
               <h4 className="mt-4 font-bold text-orange-400">- Pawani J.</h4>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-orange-500">
-              <p className="italic">"Real-time notifications helped me avoid late fees!"</p>
+              <p className="italic">Real-time notifications helped me avoid late fees!</p>
               <h4 className="mt-4 font-bold text-orange-400">- Alex P.</h4>
             </div>
           </div>

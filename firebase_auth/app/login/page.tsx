@@ -70,7 +70,7 @@ const LoginPage = () => {
 
                 <div>
                     <label htmlFor="password" className="text-sm font-medium text-gray-300">Password</label>
-                    <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="text" required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
+                    <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" required className="w-full p-3 mt-1 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"/>
                 </div>
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 <button  type="submit" className="w-full py-3 mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-md transition duration-300">
@@ -79,7 +79,7 @@ const LoginPage = () => {
                 </form>
 
                 <p className="text-sm text-gray-400 mt-4 text-center">
-                Don't have an account? <a href="/register" className="text-orange-500 hover:underline">Register Here</a>
+                Dont have an account? <a href="/register" className="text-orange-500 hover:underline">Register Here</a>
                 </p>
             </div>
             </div>
