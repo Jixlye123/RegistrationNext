@@ -12,9 +12,12 @@
     "@stripe/react-stripe-js": "^3.5.1",
     "autoprefixer": "^10.4.21",
     "firebase": "^11.5.0",
+    "lucide-react": "^0.503.0",
+    "mongoose": "^8.14.0",
     "next": "^13.4.12",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-router-dom": "^7.4.1",
     "stripe": "^17.7.0"
   },
