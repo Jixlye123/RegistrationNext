@@ -5,9 +5,9 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   await connectDB();
 
-  const { fineId, reason } = await req.json();
+  const { fineId, disputeReason } = await req.json();
 
-  if (!fineId || !reason) {
+  if (!fineId || !disputeReason) {
     return NextResponse.json({ error: "Fine ID and reason are required" }, { status: 400 });
   }
 
@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
     }
 
     fine.status = "disputed";
+    fine.disputeReason = disputeReason;
     fine.save();
 
     return NextResponse.json({ message: "Fine disputed successfully" });
@@ -27,3 +28,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
+
+
+

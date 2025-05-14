@@ -21,7 +21,7 @@ const LoginPage = () => {
     
             if (user.emailVerified) {
                 // Check if the user is an admin
-                if (user.email === "sethjinuka@gmail.com") {
+                if (user.email === "paarijayawardhana0408@gmail.com") {
                     router.push("/admin");
                     return;
                 }

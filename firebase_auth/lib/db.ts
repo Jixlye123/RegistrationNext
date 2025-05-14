@@ -14,7 +14,7 @@ export async function connectDB() {
 
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: "digiFines", // you can name it whatever you want
+      dbName: "digicluster", // you can name it whatever you want
     });
     isConnected = true;
     console.log("✅ Connected to MongoDB");

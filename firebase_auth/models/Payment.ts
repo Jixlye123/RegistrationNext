@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const PaymentSchema = new mongoose.Schema({
-  fineId: { type: mongoose.Schema.Types.ObjectId, ref: "Fine", required: true },
+  fineId: { type: mongoose.Schema.Types.ObjectId, ref: "Fine", required: false },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   amount: { type: Number, required: true },
   stripePaymentIntentId: { type: String, required: true },
@@ -10,3 +10,5 @@ const PaymentSchema = new mongoose.Schema({
 });
 
 export const Payment = mongoose.models.Payment || mongoose.model("Payment", PaymentSchema);
+
+export { PaymentSchema };
