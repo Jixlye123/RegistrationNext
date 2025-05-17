@@ -43,25 +43,25 @@ if (loading) {
     <div>
       
     
-      <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
+      <div className="min-h-screen text-white bg-gradient-to-b from-black to-gray-900">
       {/* Header Section */}
-      <header className="flex justify-between items-center p-6 max-w-7xl mx-auto">
+      <header className="flex items-center justify-between p-6 mx-auto max-w-7xl">
         <div>
           <h1 className="text-4xl font-bold">
             Digi <span className="text-orange-500">Fines</span>
             <br /> Sri Lanka
           </h1>
         </div>
-        <div className="flex space-x-4 items-center">
+        <div className="flex items-center space-x-4">
           {user && userName ? (
-            <span className="text-orange-500 font-bold">{"Hello, " + userName}</span>
+            <span className="font-bold text-orange-500">{"Hello, " + userName}</span>
           ) : null}
           
           <div className="space-x-4">
-            <Link href="/register" className="px-4 py-2 bg-orange-500 text-black font-bold rounded-md hover:bg-orange-600">
+            <Link href="/register" className="px-4 py-2 font-bold text-black bg-orange-500 rounded-md hover:bg-orange-600">
               SIGN UP
             </Link>
-            <Link href="/login" className="px-4 py-2 bg-orange-500 text-black font-bold rounded-md hover:bg-orange-600">
+            <Link href="/login" className="px-4 py-2 font-bold text-black bg-orange-500 rounded-md hover:bg-orange-600">
               LOG IN
             </Link>
 
@@ -70,21 +70,20 @@ if (loading) {
         </header>
 
         {/* Navigation Bar */}
-        <nav className="bg-gray-200 py-4 shadow-md">
-          <div className="flex justify-center space-x-8 text-black font-semibold">
+        <nav className="py-4 bg-gray-200 shadow-md">
+          <div className="flex justify-center space-x-8 font-semibold text-black">
             <Link href="/">HOME</Link>
-            <Link href="/payfines">PAY FINES</Link>
-            <Link href="/checkviolations">CHECK VIOLATIONS</Link>
+            <Link href="/myFines">MY FINES</Link>
             <Link href="/disputefines">DISPUTE FINES</Link>
           </div>
         </nav>
 
         {/* How It Works Section */}
-        <section className="max-w-6xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-center mr-4">
-          <img src="/9414772.jpg" alt="How It Works" width={450} height={250} className="w-full md:w-1/3 rounded-lg shadow-lg" />
-          <div className="md:w-1/2 p-6">
-            <h2 className="text-3xl font-bold border-b-4 border-orange-500 inline-block mb-6">HOW IT WORKS</h2>
-            <ol className="space-y-4 text-lg ml-6 md:ml-0">
+        <section className="flex flex-col items-center justify-center max-w-6xl mx-auto mt-10 mr-4 md:flex-row">
+          <img src="/9414772.jpg" alt="How It Works" width={450} height={250} className="w-full rounded-lg shadow-lg md:w-1/3" />
+          <div className="p-6 md:w-1/2">
+            <h2 className="inline-block mb-6 text-3xl font-bold border-b-4 border-orange-500">HOW IT WORKS</h2>
+            <ol className="ml-6 space-y-4 text-lg md:ml-0">
               <li><span className="font-bold">1. Violation Detection:</span> Traffic violations are captured using cameras & officers.</li>
               <li><span className="font-bold">2. Notification:</span> Offenders receive email notifications with violation details, including evidence like photos or videos.</li>
               <li><span className="font-bold">3. Payment:</span> Pay fines quickly and securely online via PayHere.</li>
@@ -93,41 +92,41 @@ if (loading) {
           </div>
         </section>
         <section className="max-w-6xl mx-auto mt-10">
-          <h2 className="text-3xl font-bold border-b-4 border-orange-500 inline-block">Frequently Asked Questions</h2>
+          <h2 className="inline-block text-3xl font-bold border-b-4 border-orange-500">Frequently Asked Questions</h2>
           <div className="mt-6 space-y-4">
-            <details className="p-4 bg-gray-800 text-white rounded-lg">
-              <summary className="cursor-pointer font-bold">How do I check my fines?</summary>
+            <details className="p-4 text-white bg-gray-800 rounded-lg">
+              <summary className="font-bold cursor-pointer">How do I check my fines?</summary>
               <p className="mt-2">Simply enter your vehicle number or ID to view your fines.</p>
             </details>
-            <details className="p-4 bg-gray-800 text-white rounded-lg">
-              <summary className="cursor-pointer font-bold">Can I dispute a fine online?</summary>
+            <details className="p-4 text-white bg-gray-800 rounded-lg">
+              <summary className="font-bold cursor-pointer">Can I dispute a fine online?</summary>
               <p className="mt-2">Yes! Click on &apos;Dispute Fines&apos; and follow the steps to submit an appeal.</p>
             </details>
-            <details className="p-4 bg-gray-800 text-white rounded-lg">
-              <summary className="cursor-pointer font-bold">What payment methods are supported?</summary>
+            <details className="p-4 text-white bg-gray-800 rounded-lg">
+              <summary className="font-bold cursor-pointer">What payment methods are supported?</summary>
               <p className="mt-2">We accept credit/debit cards, PayPal, and other online payment methods.</p>
             </details>
           </div>
         </section>
 
-        <section className="bg-gradient-to-b from-gray-900 to-black py-12 text-white">
-          <h2 className="text-3xl text-center font-bold mb-6 text-orange-500">What Our Users Say</h2>
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-orange-500">
+        <section className="py-12 text-white bg-gradient-to-b from-gray-900 to-black">
+          <h2 className="mb-6 text-3xl font-bold text-center text-orange-500">What Our Users Say</h2>
+          <div className="grid max-w-6xl grid-cols-1 gap-6 mx-auto md:grid-cols-3">
+            <div className="p-6 bg-gray-800 border border-orange-500 rounded-lg shadow-lg">
               <p className="italic">Super easy to pay my fine online. No more waiting in lines!</p>
               <h4 className="mt-4 font-bold text-orange-400">- Jinuka W.</h4>
             </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-orange-500">
+            <div className="p-6 bg-gray-800 border border-orange-500 rounded-lg shadow-lg">
               <p className="italic">I disputed my fine in minutes. Great service!</p>
               <h4 className="mt-4 font-bold text-orange-400">- Pawani J.</h4>
             </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-orange-500">
+            <div className="p-6 bg-gray-800 border border-orange-500 rounded-lg shadow-lg">
               <p className="italic">Real-time notifications helped me avoid late fees!</p>
               <h4 className="mt-4 font-bold text-orange-400">- Alex P.</h4>
             </div>
           </div>
         </section>
-        <section className="bg-gray-900 text-white py-12 text-center">
+        <section className="py-12 text-center text-white bg-gray-900">
           <h2 className="text-3xl font-bold">Need Help?</h2>
           <p className="mt-4 text-lg">Contact our support team for any inquiries.</p>
           <div className="mt-6 space-x-4">
@@ -139,8 +138,8 @@ if (loading) {
 
 
         {/* Footer Section */}
-        <footer className="bg-gray-300 p-6 mt-10 text-black">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between">
+        <footer className="p-6 mt-10 text-black bg-gray-300">
+          <div className="flex flex-col justify-between max-w-6xl mx-auto md:flex-row">
             <div>
               <h3 className="text-lg font-bold">FOR INQUIRIES</h3>
               <p>Name :- _______</p>
@@ -149,9 +148,9 @@ if (loading) {
             </div>
             <div>
               <h3 className="text-lg font-bold">FOLLOW US ON</h3>
-              <div className="flex space-x-4 mt-2">
+              <div className="flex mt-2 space-x-4">
                   <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <span className="text-orange-500 text-2xl">
+                    <span className="text-2xl text-orange-500">
                       {/* Instagram SVG */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +167,7 @@ if (loading) {
                     </span>
                   </a>
                   <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                    <span className="text-orange-500 text-2xl">
+                    <span className="text-2xl text-orange-500">
                       {/* Facebook SVG */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +184,7 @@ if (loading) {
                     </span>
                   </a>
                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <span className="text-orange-500 text-2xl">
+                    <span className="text-2xl text-orange-500">
                       {/* Twitter SVG */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +204,7 @@ if (loading) {
 
             </div>
           </div>
-          <div className="text-center mt-4 text-sm">© 2025 Privacy & Policy | Terms & Conditions</div>
+          <div className="mt-4 text-sm text-center">© 2025 Privacy & Policy | Terms & Conditions</div>
         </footer>
       </div>
       </div>

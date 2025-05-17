@@ -1,0 +1,46 @@
+// app/api/fines/disputed/route.ts
+import { NextResponse } from 'next/server';
+import { connectDB } from '@/lib/db'; // Adjust path as needed
+import { Fine } from '@/models/Fine'; // Adjust path as needed
+
+export async function GET(request: Request) {  // Changed to GET
+  try {
+    await connectDB();
+
+    const { searchParams } = new URL(request.url);
+    const date = searchParams.get('date');
+
+    let query: any = { status: 'disputed' };
+
+    if (date) {
+      const startDate = new Date(date);
+      startDate.setHours(0, 0, 0, 0);
+
+      const endDate = new Date(date);
+      endDate.setHours(23, 59, 59, 999);
+
+      query.issuedDate = {
+        $gte: startDate.toISOString(),
+        $lte: endDate.toISOString(),
+      };
+    }
+
+    const disputedFines = await Fine.find(query)
+      .select('licenseNumber amount issuedDate disputeReason fineId')
+      .exec();
+
+    const transformedFines = disputedFines.map((fine) => ({
+      _id: fine._id,
+      licenseNumber: fine.licenseNumber,
+      amount: fine.amount,
+      issuedDate: fine.issuedDate,
+      disputeReason: fine.disputeReason,
+      fineId: fine.fineId,
+    }));
+
+    return NextResponse.json(transformedFines, { status: 200 });
+  } catch (error) {
+    console.error('Error fetching disputed fines:', error);
+    return NextResponse.json({ error: 'Failed to fetch disputed fines.' }, { status: 500 });
+  }
+}
