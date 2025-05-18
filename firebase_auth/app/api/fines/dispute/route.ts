@@ -1,7 +1,6 @@
-// app/api/fines/dispute/route.ts
 import { NextResponse } from 'next/server';
-import { connectDB } from '@/lib/db'; // Adjust path as needed
-import { Fine } from '@/models/Fine'; // Adjust path as needed
+import { connectDB } from '@/lib/db'; 
+import { Fine } from '@/models/Fine'; 
 
 export async function POST(request: Request) {
   try {
@@ -13,11 +12,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Fine ID and dispute reason are required.' }, { status: 400 });
     }
 
-    // Find the fine and update its status
+  
     const updatedFine = await Fine.findByIdAndUpdate(
       fineId,
-      { status: 'disputed', disputeReason: disputeReason }, //add disputeReason
-      { new: true } // Return the updated document
+      { status: 'disputed', disputeReason: disputeReason }, 
+      { new: true } 
     );
 
     if (!updatedFine) {

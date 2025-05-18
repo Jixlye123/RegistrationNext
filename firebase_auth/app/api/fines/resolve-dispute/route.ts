@@ -1,7 +1,6 @@
-// app/api/fines/resolve-dispute/route.ts
 import { NextResponse } from 'next/server';
-import { connectDB } from '@/lib/db'; // Adjust path as needed
-import { Fine } from '../../../../models/Fine'; // Adjust path as needed
+import { connectDB } from '@/lib/db'; 
+import { Fine } from '../../../../models/Fine'; 
 
 export async function PUT(request: Request) {
   try {
@@ -13,7 +12,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'Fine ID and status are required.' }, { status: 400 });
     }
 
-    const allowedStatuses = ['disputed']; // Add 'disputed' to allowed statuses
+    const allowedStatuses = ['disputed']; 
 
     if (!allowedStatuses.includes(status)) {
       return NextResponse.json({ error: 'Invalid status provided.' }, { status: 400 });
@@ -21,7 +20,7 @@ export async function PUT(request: Request) {
 
     const updatedFine = await Fine.findByIdAndUpdate(
       fineId,
-      { status }, //  status
+      { status }, 
       { new: true }
     );
 
@@ -40,7 +39,7 @@ export async function PUT(request: Request) {
 
 export async function DELETE(request: Request) {
   try {
-    await connectMongo();
+    await connectDB();
     const { fineId } = await request.json();
 
     if (!fineId) {

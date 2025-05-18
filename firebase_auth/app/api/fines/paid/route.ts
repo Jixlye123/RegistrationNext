@@ -1,7 +1,6 @@
-// app/api/fines/paid/route.ts
 import { NextResponse } from 'next/server';
-import { connectDB } from '@/lib/db'; // Adjust path as needed
-import { Fine } from '@/models/Fine'; // Adjust path as needed
+import { connectDB } from '@/lib/db'; 
+import { Fine } from '@/models/Fine'; 
 
 export async function GET(request: Request) {
   try {
@@ -26,14 +25,14 @@ export async function GET(request: Request) {
     }
 
     const paidFines = await Fine.find(query)
-      .select('licenseNumber amount issuedDate fineId') // Removed email
+      .select('licenseNumber amount issuedDate fineId') 
       .exec();
 
     const transformedFines = paidFines.map((fine) => ({
       _id: fine._id,
       licenseNumber: fine.licenseNumber,
       amount: fine.amount,
-      issuedDate: fine.issuedDate, // Changed to issuedDate
+      issuedDate: fine.issuedDate, 
       fineId: fine.fineId,
     }));
 

@@ -1,7 +1,6 @@
-// app/api/fines/user/route.ts
 import { NextResponse } from 'next/server';
-import { connectDB } from '@/lib/db'; // Adjust path as needed
-import { Fine } from '@/models/Fine'; // Adjust path as needed
+import { connectDB } from '@/lib/db'; 
+import { Fine } from '@/models/Fine'; 
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

@@ -1,5 +1,3 @@
-// API route to get all disputed fines
-// Path: app/api/admin/fines/disputed/route.ts
 
 import { connectDB } from "@/lib/db";
 import { Fine } from "@/models/Fine";

@@ -19,8 +19,8 @@ export async function POST(req: NextRequest) {
     }
 
     fine.status = "disputed";
-    fine.disputeReason = reason; // 👈 store the reason too
-    await fine.save(); // 👈 don't forget to save!
+    fine.disputeReason = reason; 
+    await fine.save(); 
 
     return NextResponse.json({ message: "Fine disputed successfully" });
   } catch (error) {

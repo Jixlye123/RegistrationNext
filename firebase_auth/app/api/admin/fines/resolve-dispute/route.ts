@@ -1,6 +1,3 @@
-// API route to resolve disputed fines
-// Path: app/api/admin/fines/resolve-dispute/route.ts
-
 import { connectDB } from "@/lib/db";
 import { Fine } from "@/models/Fine";
 import { NextResponse } from "next/server";
@@ -9,7 +6,7 @@ export async function POST(request: Request) {
   try {
     const { fineId, action } = await request.json();
     
-    // Validate required fields
+    
     if (!fineId || !action || !['keep', 'remove'].includes(action)) {
       return NextResponse.json({ 
         error: "Invalid request", 
@@ -19,7 +16,7 @@ export async function POST(request: Request) {
     
     await connectDB();
     
-    // Find the disputed fine
+    
     const fine = await Fine.findById(fineId);
     
     if (!fine) {
@@ -35,9 +32,9 @@ export async function POST(request: Request) {
     }
     
     if (action === 'keep') {
-      // Keep the fine but change status back to pending
+      
       fine.status = 'pending';
-      fine.disputeResolutionDate = new Date(); // You might need to add this field to your schema
+      fine.disputeResolutionDate = new Date(); 
       await fine.save();
       
       return NextResponse.json({
@@ -46,8 +43,7 @@ export async function POST(request: Request) {
         fine: fine
       });
     } else {
-      // Cancel the fine
-      // Instead of deleting, you could add a 'cancelled' status option to your schema
+      
       await Fine.findByIdAndDelete(fineId);
       
       return NextResponse.json({

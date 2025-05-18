@@ -1,4 +1,4 @@
-// app/api/fines/create/route.ts
+
 import { connectDB } from "@/lib/db";
 import { Fine } from "@/models/Fine";
 import { NextRequest, NextResponse } from "next/server";
@@ -11,18 +11,18 @@ export async function POST(req: NextRequest) {
       licenseNumber,
       violationType,
       amount,
-      status,         // optional
-      disputeReason   // optional
+      status,         
+      disputeReason   
     } = await req.json();
 
-    // create the Fine
+    
     const fine = await Fine.create({
       userId,
       licenseNumber,
       violationType,
       amount,
-      status,         // omit if undefined
-      disputeReason   // omit if undefined
+      status,         
+      disputeReason   
     });
 
     return NextResponse.json(fine, { status: 201 });

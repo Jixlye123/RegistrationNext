@@ -1,4 +1,3 @@
-// app/api/fines/assign/route.ts
 import { connectDB } from "@/lib/db";
 import { Fine } from "@/models/Fine";
 import { User } from "@/models/User";
