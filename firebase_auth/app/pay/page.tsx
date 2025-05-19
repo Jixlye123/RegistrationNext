@@ -14,30 +14,29 @@ import {
 import { cn } from '@/lib/utils';
 import { CheckCircle, AlertTriangle, CreditCard } from 'lucide-react';
 
-// Define the expected type for the query parameters
 interface PaymentParams {
   fineId: string;
   amount: string;
 }
 
-// Custom styles for the CardElement to match shadcn/ui
+
 const cardElementOptions = {
   style: {
     base: {
-      color: '#fff', // White text
+      color: '#fff', 
       fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
       fontSize: '16px',
       '::placeholder': {
-        color: '#a0aec0', // Gray placeholder
+        color: '#a0aec0', 
       },
-      lineHeight: '1.6', // Add line height for better spacing
+      lineHeight: '1.6', 
       fontWeight: '400',
       '::selection': {
-        backgroundColor: '#f6ad55', // Orange selection
+        backgroundColor: '#f6ad55', 
       },
     },
     invalid: {
-      color: '#e53e3e', // Red error
+      color: '#e53e3e', 
       iconColor: '#e53e3e',
     },
   },
@@ -49,18 +48,18 @@ const CheckoutForm = ({ fineId, amount }: { fineId: string; amount: number }) =>
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
-  const [disabled, setDisabled] = useState(false); // Add disabled state
+  const [disabled, setDisabled] = useState(false);
 
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded.
+      
       return;
     }
 
     setProcessing(true);
-    setDisabled(true); // Disable the button during processing
+    setDisabled(true); 
     setError(null);
 
     const cardElement = elements.getElement(CardElement);
@@ -70,7 +69,7 @@ const CheckoutForm = ({ fineId, amount }: { fineId: string; amount: number }) =>
     }
 
     try {
-      // 1. Create a PaymentIntent on your server (API route)
+      
       const response = await fetch('/api/create-payment-intent', {
         method: 'POST',
         headers: {
@@ -78,7 +77,7 @@ const CheckoutForm = ({ fineId, amount }: { fineId: string; amount: number }) =>
         },
         body: JSON.stringify({
           fineId: fineId,
-          amount: amount * 100, // Stripe expects amount in cents
+          amount: amount * 100,
         }),
       });
 
@@ -89,7 +88,7 @@ const CheckoutForm = ({ fineId, amount }: { fineId: string; amount: number }) =>
 
       const { clientSecret } = await response.json();
 
-      // 2. Confirm the PaymentIntent with the CardElement
+      
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
@@ -97,17 +96,17 @@ const CheckoutForm = ({ fineId, amount }: { fineId: string; amount: number }) =>
       });
 
       if (result.error) {
-        // Payment failed
+        
         setError(result.error.message);
         setProcessing(false);
-        setDisabled(false); // Re-enable the button
+        setDisabled(false);
         console.error("Payment Error", result.error);
       } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-        // Payment succeeded
+        
         setSucceeded(true);
         setProcessing(false);
 
-        // 3.  Update fine status to 'paid' on your server
+        
         const updateStatusResponse = await fetch('/api/fines/update-status', {
           method: 'PUT',
           headers: {

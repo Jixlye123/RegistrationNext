@@ -6,7 +6,7 @@ import { auth, firestore } from '@/firebase/firebase';
 import { doc, getDoc } from "firebase/firestore";
 import type { User } from "firebase/auth";
 import Link from "next/link";
-import { MessageCircle, XCircle, Send, ChevronDown } from 'lucide-react'; 
+import { MessageCircle, XCircle, Send} from 'lucide-react'; 
 import '../app/globals.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
